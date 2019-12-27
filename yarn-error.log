@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\projetos\RocketSeat_BootCamp\6 Fase\Teste no NodeJS\server\package.json: Unexpected token / in JSON at position 209
+  SyntaxError: C:\projetos\TEST-WITH-JEST\package.json: Unexpected token } in JSON at position 309
       at JSON.parse (<anonymous>)
       at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -30,9 +30,8 @@ npm manifest:
     "scripts": {
       "dev": "nodemon src/server.js",
       "build": "sucrase ./src -d ./dist --transforms imports",
-      // "pretest": "set NODE_ENV=test&&yarn sequelize db:migrate",
-      "test": "set NODE_ENV=test&&yarn jest"
-      // "posttest": "set NODE_ENV=test&&yarn sequelize db:migrate:undo:all"
+      "pretest": "set NODE_ENV=test&&npx sequelize db:migrate",
+      "test": "set NODE_ENV=test&& jest",
     },
     "dependencies": {
       "dotenv": "^8.0.0",
@@ -54,9 +53,10 @@ npm manifest:
       "jest": "^24.9.0",
       "nodemon": "^1.19.1",
       "prettier": "^1.18.2",
-      "sequelize-cli": "^5.5.0",
+      "sequelize-cli": "^5.5.1",
       "sqlite3": "^4.1.1",
-      "sucrase": "^3.10.1"
+      "sucrase": "^3.10.1",
+      "supertest": "^4.0.2"
     }
   }
 
@@ -1047,7 +1047,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
     integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
   
-  component-emitter@^1.2.1:
+  component-emitter@^1.2.0, component-emitter@^1.2.1:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
     integrity sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
@@ -1125,6 +1125,11 @@ Lockfile:
     version "0.3.1"
     resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
     integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
+  
+  cookiejar@^2.1.0:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.2.tgz#dd8a235530752f988f9a0844f3fc589e3111125c"
+    integrity sha512-Mw+adcfzPxcPeI+0WlvRrr/3lGVO0bD75SxX6811cxSh1Wbxx7xZBGK1eVtDf6si8rg2lhnUjsVLMFMfbRIuwA==
   
   copy-descriptor@^0.1.0:
     version "0.1.1"
@@ -1804,7 +1809,7 @@ Lockfile:
       assign-symbols "^1.0.0"
       is-extendable "^1.0.1"
   
-  extend@~3.0.2:
+  extend@^3.0.0, extend@~3.0.2:
     version "3.0.2"
     resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
     integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -1944,6 +1949,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
     integrity sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
   
+  form-data@^2.3.1:
+    version "2.5.1"
+    resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.5.1.tgz#f2cbec57b5e59e23716e128fe44d4e5dd23895f4"
+    integrity sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
+    dependencies:
+      asynckit "^0.4.0"
+      combined-stream "^1.0.6"
+      mime-types "^2.1.12"
+  
   form-data@~2.3.2:
     version "2.3.3"
     resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.3.tgz#dcce52c05f644f298c6a7ab936bd724ceffbf3a6"
@@ -1952,6 +1966,11 @@ Lockfile:
       asynckit "^0.4.0"
       combined-stream "^1.0.6"
       mime-types "^2.1.12"
+  
+  formidable@^1.2.0:
+    version "1.2.1"
+    resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.1.tgz#70fb7ca0290ee6ff961090415f4b3df3d2082659"
+    integrity sha512-Fs9VRguL0gqGHkXS5GQiMCr1VhZBxz0JnJs4JmMp/2jL18Fmbzvv7vOFRU+U8TBkHEE/CX1qDXzJplVULgsLeg==
   
   forwarded@~0.1.2:
     version "0.1.2"
@@ -3376,7 +3395,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
     integrity sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
   
-  methods@~1.1.2:
+  methods@^1.1.1, methods@^1.1.2, methods@~1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
     integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
@@ -3424,7 +3443,7 @@ Lockfile:
     dependencies:
       mime-db "1.40.0"
   
-  mime@1.6.0:
+  mime@1.6.0, mime@^1.4.1:
     version "1.6.0"
     resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
     integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
@@ -4283,6 +4302,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
     integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
   
+  qs@^6.5.1:
+    version "6.9.1"
+    resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
+    integrity sha512-Cxm7/SS/y/Z3MHWSxXb8lIFqgqBowP5JMlTUFyJN88y0SGQhVmZnqFK/PeuMX9LzUyWsqqhNxIyg0jlzq946yA==
+  
   qs@~6.5.2:
     version "6.5.2"
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -4352,7 +4376,7 @@ Lockfile:
       normalize-package-data "^2.3.2"
       path-type "^3.0.0"
   
-  readable-stream@^2.0.2, readable-stream@^2.0.6:
+  readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.3.5:
     version "2.3.6"
     resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
     integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
@@ -4668,10 +4692,10 @@ Lockfile:
       range-parser "~1.2.1"
       statuses "~1.5.0"
   
-  sequelize-cli@^5.5.0:
-    version "5.5.0"
-    resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-5.5.0.tgz#b0570352f70eaa489a25dccf55cf316675d6ff06"
-    integrity sha512-twVQ02alCpr2XvxNmpi32C48WZs6xHTH1OFTfTS5Meg3BVqOM8ghiZoml4FITFjlD8sAJSQjlAHTwqTbuolA6Q==
+  sequelize-cli@^5.5.1:
+    version "5.5.1"
+    resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-5.5.1.tgz#0b9c2fc04d082cc8ae0a8fe270b96bb606152bab"
+    integrity sha512-ZM4kUZvY3y14y+Rq3cYxGH7YDJz11jWHcN2p2x7rhAIemouu4CEXr5ebw30lzTBtyXV4j2kTO+nUjZOqzG7k+Q==
     dependencies:
       bluebird "^3.5.3"
       cli-color "^1.4.0"
@@ -5063,6 +5087,30 @@ Lockfile:
       lines-and-columns "^1.1.6"
       mz "^2.7.0"
       pirates "^4.0.0"
+  
+  superagent@^3.8.3:
+    version "3.8.3"
+    resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.3.tgz#460ea0dbdb7d5b11bc4f78deba565f86a178e128"
+    integrity sha512-GLQtLMCoEIK4eDv6OGtkOoSMt3D+oq0y3dsxMuYuDvaNUvuT8eFBuLmfR0iYYzHC1e8hpzC6ZsxbuP6DIalMFA==
+    dependencies:
+      component-emitter "^1.2.0"
+      cookiejar "^2.1.0"
+      debug "^3.1.0"
+      extend "^3.0.0"
+      form-data "^2.3.1"
+      formidable "^1.2.0"
+      methods "^1.1.1"
+      mime "^1.4.1"
+      qs "^6.5.1"
+      readable-stream "^2.3.5"
+  
+  supertest@^4.0.2:
+    version "4.0.2"
+    resolved "https://registry.yarnpkg.com/supertest/-/supertest-4.0.2.tgz#c2234dbdd6dc79b6f15b99c8d6577b90e4ce3f36"
+    integrity sha512-1BAbvrOZsGA3YTCWqbmh14L0YEq0EGICX/nBnfkfVJn7SrxQV1I3pMYjSzG9y/7ZU2V9dWqyqk2POwxlb09duQ==
+    dependencies:
+      methods "^1.1.2"
+      superagent "^3.8.3"
   
   supports-color@^5.2.0, supports-color@^5.3.0:
     version "5.5.0"
