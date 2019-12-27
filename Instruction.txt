@@ -1,0 +1,24 @@
+yarn add jest -D
+yarn jest --init
+pega o jest.config.js
+yarn add --dev @sucrase/jest-plugin
+
+Adicionar no jest.config
+---------------------------------------------------
+"transform": {
+  ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+}
+
+No nodemon.json adicionar
+---------------------------------------------------
+{
+  "execMap": {
+    "js": "sucrase-node"
+  },
+  "ignore":[
+    "__tests__"
+  ]
+}
+
+Adicionar a parte de intelisense
+yarn add -D @types/jest
